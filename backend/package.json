@@ -5,10 +5,12 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon --delay 500ms --exec ts-node ./src/index.ts"
+    "dev": "nodemon --delay 500ms --exec ts-node ./src/index.ts",
+    "format": "yarn prettier --write ."
   },
   "dependencies": {
     "nodemon": "^3.0.3",
+    "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
