@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "prisma": {
+    "seed": "ts-node prisma/seeds/seed.ts"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "nodemon --delay 500ms --exec ts-node ./src/index.ts",
@@ -18,6 +21,7 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@types/node": "^20.11.17",
     "prisma": "^5.9.1"
   }
 }
