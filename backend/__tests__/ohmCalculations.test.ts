@@ -27,7 +27,7 @@ describe('isBandColorValid', () => {
     expect(isBandColorValid('black')).toBe(true);
   });
 
-  test('returns true if color string is valid', () => {
+  test('returns false if color string is not valid', () => {
     const value = 'horse';
     expect(isBandColorValid(value)).toBe(false);
   });
