@@ -1,0 +1,17 @@
+.result-card {
+  width: 50%;
+
+  .result-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    p {
+      margin: 0;
+      font-weight: bold;
+
+      span {
+        font-weight: 200;
+      }
+    }
+  }
+}

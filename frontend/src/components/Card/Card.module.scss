@@ -1,0 +1,27 @@
+.card {
+  padding: 20px;
+  border: 1px solid #d9d9d9;
+  background-color: white;
+
+  border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+
+  box-shadow: 3px 3px 11px 0px rgba(173, 173, 173, 0.75);
+  -webkit-box-shadow: 3px 3px 11px 0px rgba(173, 173, 173, 0.75);
+  -moz-box-shadow: 3px 3px 11px 0px rgba(173, 173, 173, 0.75);
+
+  .card__title {
+    font-size: 2rem;
+    color: #585858;
+    margin-top: 0;
+  }
+
+  hr {
+    border: none;
+    border-top: solid;
+    border-width: 1px;
+    border-color: #cecece;
+    margin: 20px 0;
+  }
+}

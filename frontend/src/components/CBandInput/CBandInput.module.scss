@@ -1,0 +1,19 @@
+.cband-input {
+  margin-bottom: 10px;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: rgb(99, 99, 99);
+    font-size: 0.8rem;
+  }
+
+  select {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    padding: 7px 4px;
+    border-color: rgb(172, 172, 172);
+  }
+}

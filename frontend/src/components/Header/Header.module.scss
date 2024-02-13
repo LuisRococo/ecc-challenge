@@ -1,0 +1,15 @@
+.header {
+  padding: 30px;
+  background-color: antiquewhite;
+  text-align: center;
+
+  .header__title {
+    color: rgb(64, 52, 33);
+    margin: 0;
+  }
+
+  .header__logo {
+    width: 80px;
+    margin-bottom: 10px;
+  }
+}
