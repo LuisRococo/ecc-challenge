@@ -6,19 +6,19 @@ import {
 
 describe('calculateOhmValue', () => {
   test('returns ohm value with valid data', async () => {
-    let ohmValue = await calculateOhmValue('red', 'blue', 'orange', 'gold');
-    expect(ohmValue).toBe(26000);
+    let result = await calculateOhmValue('red', 'blue', 'orange', 'gold');
+    expect(result?.ohmValue).toBe(26000);
 
-    ohmValue = await calculateOhmValue('green', 'white', 'red', 'gold');
-    expect(ohmValue).toBe(5900);
+    result = await calculateOhmValue('green', 'white', 'red', 'gold');
+    expect(result?.ohmValue).toBe(5900);
 
-    ohmValue = await calculateOhmValue('violet', 'red', 'blue', 'silver');
-    expect(ohmValue).toBe(72000000);
+    result = await calculateOhmValue('violet', 'red', 'blue', 'silver');
+    expect(result?.ohmValue).toBe(72000000);
   });
 
   test('returns null on failure or NaN result', async () => {
-    const ohmValue = await calculateOhmValue('gold', 'red', 'red', 'red');
-    expect(ohmValue).toBe(null);
+    const result = await calculateOhmValue('gold', 'red', 'red', 'red');
+    expect(result).toBe(null);
   });
 });
 
