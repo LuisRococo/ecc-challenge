@@ -3,6 +3,7 @@ import styles from './App.module.scss';
 import Header from './components/Header/Header';
 import InputCard from './components/InputCard/InputCard';
 import ResultCard from './components/ResultCard/ResultCard';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <ResultCard />
         <InputCard />
       </div>
+
+      <Footer />
     </div>
   );
 }
