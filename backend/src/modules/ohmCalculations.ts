@@ -1,20 +1,20 @@
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-export enum BandColorsEnum {
-  Black = 'black',
-  brown = 'brown',
-  Red = 'red',
-  Orange = 'orange',
-  Yellow = 'yellow',
-  Green = 'green',
-  Blue = 'blue',
-  Violet = 'violet',
-  grey = 'grey',
-  White = 'white',
-  Gold = 'gold',
-  Silver = 'silver',
-}
+export const validBandColors = [
+  'black',
+  'brown',
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'violet',
+  'grey',
+  'white',
+  'gold',
+  'silver',
+];
 
 export type bandColor =
   | 'black'
@@ -34,8 +34,10 @@ const combineFirstTwoBandDigits = (bandADigit: number, bandBDigit: number) => {
   return parseInt(`${bandADigit}${bandBDigit}`);
 };
 
-export const isBandColorValid = (bandColor?: bandColor) => {
-  return bandColor != undefined && bandColor in BandColorsEnum;
+export const isBandColorValid = (bandColorToCheck?: bandColor) => {
+  return (
+    bandColorToCheck != undefined && validBandColors.includes(bandColorToCheck)
+  );
 };
 
 export const calculateOhmValue = async (

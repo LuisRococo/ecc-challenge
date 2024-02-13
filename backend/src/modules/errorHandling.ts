@@ -18,11 +18,19 @@ export const catchAsync = (callback: any) => {
   };
 };
 
+export class CustomError extends Error {
+  constructor(public message: string) {
+    super(message);
+  }
+}
+
 export const errorHandlingMiddleware = async (
-  error: any,
+  error: Error,
   request: Request,
   response: Response,
   next: NextFunction
 ) => {
-  response.status(500).send(formatResponseError('Internal Server Error'));
+  const errorMessage =
+    error instanceof CustomError ? error.message : 'Internal Server Error';
+  response.status(500).send(formatResponseError(errorMessage));
 };
