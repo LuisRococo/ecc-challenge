@@ -40,3 +40,13 @@ $ yarn prisma db seed
 ```
 $ yarn dev
 ```
+
+## Testing
+
+We use Jest for testing. Tests are located on "\_\_tests\_\_" directory.
+
+To run tests you can use the next command:
+
+```
+yarn test
+```
