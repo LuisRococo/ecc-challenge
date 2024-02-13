@@ -1,5 +1,6 @@
 import express from 'express';
 import { router } from './routes';
+import { errorHandlingMiddleware } from './modules/errorHandling';
 
 // SETUP
 const app = express();
@@ -10,6 +11,9 @@ app.get('/', function (req, res) {
 });
 
 app.use('/api', router);
+
+// ERROR HANDLING
+app.use(errorHandlingMiddleware);
 
 // INIT SERVER
 app.listen(3000);

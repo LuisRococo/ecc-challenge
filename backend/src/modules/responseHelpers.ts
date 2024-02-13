@@ -5,12 +5,7 @@ export enum ResponseStatusEnum {
 
 export interface IApiResponse {
   status: ResponseStatusEnum;
-  data: any | IApiError;
-}
-
-export interface IApiError {
-  message: string;
-  metadata: any;
+  data: any;
 }
 
 export const formatApiResponse = (response: any = null): IApiResponse => {
@@ -19,3 +14,10 @@ export const formatApiResponse = (response: any = null): IApiResponse => {
     data: response,
   };
 };
+
+export function formatResponseError(message: string): IApiResponse {
+  return {
+    status: ResponseStatusEnum.error,
+    data: message,
+  };
+}
