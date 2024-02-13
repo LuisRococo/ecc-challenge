@@ -1,0 +1,24 @@
+.input-card {
+  width: 50%;
+
+  .result-button {
+    width: 100%;
+    background-color: rgb(96, 96, 247);
+    color: white;
+    padding: 12px 0;
+    border-radius: 7px;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: rgb(117, 117, 254);
+    }
+
+    &:active {
+      background-color: rgb(86, 86, 255);
+    }
+  }
+}

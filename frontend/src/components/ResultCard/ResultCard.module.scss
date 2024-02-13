@@ -1,0 +1,28 @@
+.result-card {
+  width: 50%;
+
+  .result-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .result-data__item {
+      display: flex;
+      align-items: center;
+
+      .result-data__item-icon {
+        color: rgb(255, 179, 48);
+        font-size: 20px;
+      }
+
+      p {
+        padding-left: 10px;
+        margin: 0;
+        font-weight: bold;
+
+        span {
+          font-weight: 200;
+        }
+      }
+    }
+  }
+}
