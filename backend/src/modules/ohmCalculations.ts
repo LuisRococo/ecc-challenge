@@ -30,11 +30,14 @@ export type bandColor =
   | 'gold'
   | 'silver';
 
-const combineFirstTwoBandDigits = (bandADigit: number, bandBDigit: number) => {
+export const joinFirstTwoBandDigits = (
+  bandADigit: number,
+  bandBDigit: number
+) => {
   return parseInt(`${bandADigit}${bandBDigit}`);
 };
 
-export const isBandColorValid = (bandColorToCheck?: bandColor) => {
+export const isBandColorValid = (bandColorToCheck?: string) => {
   return (
     bandColorToCheck != undefined && validBandColors.includes(bandColorToCheck)
   );
@@ -45,7 +48,7 @@ export const calculateOhmValue = async (
   bandBColor: bandColor,
   bandCColor: bandColor,
   bandDColor: bandColor
-): Promise<number> => {
+): Promise<number | null> => {
   const bandAColorData = await prisma.resistorColorCode.findFirst({
     where: { color: bandAColor },
   });
@@ -61,11 +64,19 @@ export const calculateOhmValue = async (
 
   // Calculations
 
-  const resistorDigits = combineFirstTwoBandDigits(
-    bandAColorData!.digit!,
-    bandBColorData!.digit!
-  );
-  const ohmValue = resistorDigits * bandCColorData!.multiplier.toNumber();
+  try {
+    const resistorDigits = joinFirstTwoBandDigits(
+      bandAColorData!.digit!,
+      bandBColorData!.digit!
+    );
+    const ohmValue = resistorDigits * bandCColorData!.multiplier.toNumber();
 
-  return ohmValue;
+    if (isNaN(ohmValue)) {
+      return null;
+    } else {
+      return ohmValue;
+    }
+  } catch (error) {
+    return null;
+  }
 };
