@@ -48,7 +48,7 @@ export const calculateOhmValue = async (
   bandBColor: bandColor,
   bandCColor: bandColor,
   bandDColor: bandColor
-): Promise<number | null> => {
+) => {
   const bandAColorData = await prisma.resistorColorCode.findFirst({
     where: { color: bandAColor },
   });
@@ -74,7 +74,7 @@ export const calculateOhmValue = async (
     if (isNaN(ohmValue)) {
       return null;
     } else {
-      return ohmValue;
+      return { ohmValue, tolerance: bandDColorData?.tolerance };
     }
   } catch (error) {
     return null;
