@@ -1,9 +1,9 @@
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-export enum ResitorColors {
+export enum BandColorsEnum {
   Black = 'black',
-  brown = 'Brown',
+  brown = 'brown',
   Red = 'red',
   Orange = 'orange',
   Yellow = 'yellow',
@@ -16,15 +16,33 @@ export enum ResitorColors {
   Silver = 'silver',
 }
 
-export const isBandColorValid = (bandColor?: string) => {
-  return bandColor != undefined && bandColor in ResitorColors;
+export type bandColor =
+  | 'black'
+  | 'brown'
+  | 'red'
+  | 'orange'
+  | 'yellow'
+  | 'green'
+  | 'blue'
+  | 'violet'
+  | 'grey'
+  | 'white'
+  | 'gold'
+  | 'silver';
+
+const combineFirstTwoBandDigits = (bandADigit: number, bandBDigit: number) => {
+  return parseInt(`${bandADigit}${bandBDigit}`);
+};
+
+export const isBandColorValid = (bandColor?: bandColor) => {
+  return bandColor != undefined && bandColor in BandColorsEnum;
 };
 
 export const calculateOhmValue = async (
-  bandAColor: string,
-  bandBColor: string,
-  bandCColor: string,
-  bandDColor: string
+  bandAColor: bandColor,
+  bandBColor: bandColor,
+  bandCColor: bandColor,
+  bandDColor: bandColor
 ): Promise<number> => {
   const bandAColorData = await prisma.resistorColorCode.findFirst({
     where: { color: bandAColor },
@@ -41,8 +59,9 @@ export const calculateOhmValue = async (
 
   // Calculations
 
-  const resistorDigits = parseInt(
-    `${bandAColorData!.digit}${bandBColorData!.digit}`
+  const resistorDigits = combineFirstTwoBandDigits(
+    bandAColorData!.digit!,
+    bandBColorData!.digit!
   );
   const ohmValue = resistorDigits * bandCColorData!.multiplier.toNumber();
 
