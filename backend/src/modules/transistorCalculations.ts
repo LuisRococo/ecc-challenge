@@ -16,11 +16,15 @@ export enum ResitorColors {
   Silver = 'silver',
 }
 
+export const isBandColorValid = (bandColor?: string) => {
+  return bandColor != undefined && bandColor in ResitorColors;
+};
+
 export const calculateOhmValue = async (
-  bandAColor: ResitorColors,
-  bandBColor: ResitorColors,
-  bandCColor: ResitorColors,
-  bandDColor: ResitorColors
+  bandAColor: string,
+  bandBColor: string,
+  bandCColor: string,
+  bandDColor: string
 ): Promise<number> => {
   const bandAColorData = await prisma.resistorColorCode.findFirst({
     where: { color: bandAColor },
@@ -41,7 +45,6 @@ export const calculateOhmValue = async (
     `${bandAColorData!.digit}${bandBColorData!.digit}`
   );
   const ohmValue = resistorDigits * bandCColorData!.multiplier.toNumber();
-  console.log(ohmValue);
 
   return ohmValue;
 };
