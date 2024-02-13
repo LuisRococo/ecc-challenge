@@ -26,7 +26,8 @@ const ohmCalculator = async (req: Request, res: Response) => {
 
   if (!validParams) {
     throw new CustomError(
-      'Missing band color or band color not acceptable. Remember to send band colors as query parameters with the next format: bandAColor, bandBColor, bandCColor and bandDColor'
+      'Missing band color or band color not acceptable. Remember to send band colors as query parameters with the next format: bandAColor, bandBColor, bandCColor and bandDColor',
+      400
     );
   }
 
