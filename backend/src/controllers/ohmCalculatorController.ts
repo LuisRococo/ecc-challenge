@@ -8,10 +8,10 @@ import {
 import { CustomError } from '../modules/errorHandling';
 
 interface IOhmCalculatorParams {
-  bandAColor?: bandColor;
-  bandBColor?: bandColor;
-  bandCColor?: bandColor;
-  bandDColor?: bandColor;
+  bandAColor?: string;
+  bandBColor?: string;
+  bandCColor?: string;
+  bandDColor?: string;
 }
 
 const ohmCalculator = async (req: Request, res: Response) => {
@@ -31,10 +31,10 @@ const ohmCalculator = async (req: Request, res: Response) => {
   }
 
   const ohmValue = await calculateOhmValue(
-    bandAColor!,
-    bandBColor!,
-    bandCColor!,
-    bandDColor!
+    bandAColor as bandColor,
+    bandBColor as bandColor,
+    bandCColor as bandColor,
+    bandDColor as bandColor
   );
 
   res.json(formatApiResponse(ohmValue));
