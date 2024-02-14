@@ -4,16 +4,31 @@ import Header from './components/Header/Header';
 import InputCard from './components/InputCard/InputCard';
 import ResultCard from './components/ResultCard/ResultCard';
 import Footer from './components/Footer/Footer';
+import useOhmCl from './hooks/useOhmCl';
+import { OhmResultContext } from './contexts/ohmResultContext';
 
 function App() {
+  const { bandColors, result, loadResult, setBandColors, setResult } =
+    useOhmCl();
+
   return (
     <div>
       <Header />
 
-      <div className={styles.cards__cont}>
-        <ResultCard />
-        <InputCard />
-      </div>
+      <OhmResultContext.Provider
+        value={{
+          bandColors,
+          result,
+          loadResult,
+          setResult,
+          setBandColors,
+        }}
+      >
+        <div className={styles.cards__cont}>
+          <ResultCard />
+          <InputCard />
+        </div>
+      </OhmResultContext.Provider>
 
       <Footer />
     </div>

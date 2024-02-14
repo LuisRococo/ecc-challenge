@@ -1,9 +1,11 @@
 import express from 'express';
+var cors = require('cors');
 import { router } from './routes';
 import { errorHandlingMiddleware } from './modules/errorHandling';
 
 // SETUP
 const app = express();
+app.use(cors());
 
 // ROUTES
 app.get('/', function (req, res) {
