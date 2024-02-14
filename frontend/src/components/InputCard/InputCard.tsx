@@ -51,7 +51,13 @@ const InputCard = () => {
           onColorChange={setColor}
         />
 
-        <button onClick={loadResult} className={styles['result-button']}>
+        <button
+          onClick={() => {
+            setResult(null);
+            loadResult();
+          }}
+          className={styles['result-button']}
+        >
           Get result
         </button>
       </Card>
