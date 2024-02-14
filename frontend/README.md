@@ -12,8 +12,16 @@ Note: It is recommeded to run the backend project beforehand running this one.
 $ yarn install
 ```
 
-2. Run the react app
+2. Copy `.env.template` file and rename it into `.env`
+
+```
+$ cp .env.template .env
+```
+
+3. Run the react app
 
 ```
 $ yarn start
 ```
+
+4. Enter the next URL: [http://localhost:4000](http://localhost:4000)
