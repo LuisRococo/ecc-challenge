@@ -1,16 +1,8 @@
-.footer {
-  background-color: rgb(136, 136, 136);
-  color: white;
-  text-align: center;
-  padding: 40px 0;
+.footer__logo {
+  width: 40px;
+  display: inline-block;
+}
 
-  .footer__logo {
-    width: 40px;
-    margin-bottom: 20px;
-  }
-
-  .footer__item {
-    margin: 0;
-    margin-bottom: 10px;
-  }
+.footer__sc-icon {
+  font-size: 1.8rem;
 }
