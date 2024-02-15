@@ -4,7 +4,7 @@ import logo from '../../images/transistor.png';
 
 const Footer = () => {
   return (
-    <div className={styles.footer}>
+    <div data-testid="footer" className={styles.footer}>
       <img className={styles['footer__logo']} src={logo} alt="footer logo" />
       <p className={styles['footer__item']}>
         <strong>Made by: </strong>Luis Roberto Peña

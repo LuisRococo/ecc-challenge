@@ -18,8 +18,8 @@ const CBandInput: FC<ICBandColor> = ({
   onColorChange,
 }) => {
   return (
-    <div className={styles['cband-input']}>
-      <label>{number}° Color band</label>
+    <div data-testid="band-input" className={styles['cband-input']}>
+      <label data-testid="band-number">{number}° Color band</label>
       <select
         value={currentColor}
         onChange={(e) => {
