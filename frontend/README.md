@@ -25,3 +25,13 @@ $ yarn start
 ```
 
 4. Enter the next URL: [http://localhost:4000](http://localhost:4000)
+
+## Testing
+
+We use Jest as testing framework.
+
+Run tests with:
+
+```
+$ yarn test
+```
