@@ -11,8 +11,12 @@ const Card: FC<IProps> = ({ children, title, isDeactivated }) => {
   const cardClasses = `${styles.card} ${isDeactivated ? styles['card--deactivated'] : ''}`;
 
   return (
-    <div className={cardClasses}>
-      {title && <p className={styles.card__title}>{title}</p>}
+    <div data-testid="card" className={cardClasses}>
+      {title && (
+        <p data-testid="card-title" className={styles.card__title}>
+          {title}
+        </p>
+      )}
       {children}
     </div>
   );
