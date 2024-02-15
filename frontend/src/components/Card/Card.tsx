@@ -13,7 +13,7 @@ const Card: FC<IProps> = ({ children, title, isDeactivated }) => {
   return (
     <div data-testid="card" className={cardClasses}>
       {title && (
-        <p data-testid="card-title" className={styles.card__title}>
+        <p data-testid="card-title" className="text-2xl font-bold mb-3">
           {title}
         </p>
       )}

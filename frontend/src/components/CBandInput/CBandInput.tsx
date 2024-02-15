@@ -21,6 +21,7 @@ const CBandInput: FC<ICBandColor> = ({
     <div data-testid="band-input" className={styles['cband-input']}>
       <label data-testid="band-number">{number}° Color band</label>
       <select
+        className="select select-bordered w-full"
         value={currentColor}
         onChange={(e) => {
           onColorChange(bandName, e.currentTarget.value);

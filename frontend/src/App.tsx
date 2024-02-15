@@ -12,23 +12,25 @@ function App() {
     useOhmCl();
 
   return (
-    <div>
-      <Header />
+    <div className={styles['main-container']}>
+      <div>
+        <Header />
 
-      <OhmResultContext.Provider
-        value={{
-          bandColors,
-          result,
-          loadResult,
-          setResult,
-          setBandColors,
-        }}
-      >
-        <div className={styles.cards__cont}>
-          <ResultCard />
-          <InputCard />
-        </div>
-      </OhmResultContext.Provider>
+        <OhmResultContext.Provider
+          value={{
+            bandColors,
+            result,
+            loadResult,
+            setResult,
+            setBandColors,
+          }}
+        >
+          <div className={styles.cards__cont}>
+            <ResultCard />
+            <InputCard />
+          </div>
+        </OhmResultContext.Provider>
+      </div>
 
       <Footer />
     </div>
