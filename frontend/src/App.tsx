@@ -11,20 +11,20 @@ function App() {
   const { bandColors, result, loadResult, setBandColors, setResult } =
     useOhmCl();
 
+  const ohmContextParams = {
+    bandColors,
+    result,
+    loadResult,
+    setResult,
+    setBandColors,
+  };
+
   return (
     <div className={styles['main-container']}>
       <div>
         <Header />
 
-        <OhmResultContext.Provider
-          value={{
-            bandColors,
-            result,
-            loadResult,
-            setResult,
-            setBandColors,
-          }}
-        >
+        <OhmResultContext.Provider value={ohmContextParams}>
           <div className={styles.cards__cont}>
             <ResultCard />
             <InputCard />
