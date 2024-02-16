@@ -38,6 +38,11 @@ const useOhmCl = () => {
 
       const { data } = result;
 
+      if (!data) {
+        alert('There was an error. Try again in other moment');
+        return;
+      }
+
       setResult({
         ohm: data.ohmValue,
         tolerance: data.tolerance,

@@ -20,7 +20,7 @@ $ cp .env.template .env
 4. Run docker
 
 ```
-$ docker-compose up -d
+$ docker-compose -p ecc-challenge-db up -d
 ```
 
 5. Create tables and seed them.

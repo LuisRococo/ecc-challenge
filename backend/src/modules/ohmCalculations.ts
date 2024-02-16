@@ -49,33 +49,34 @@ export const calculateOhmValue = async (
   bandCColor: bandColor,
   bandDColor: bandColor
 ) => {
-  const bandAColorData = await prisma.resistorColorCode.findFirst({
-    where: { color: bandAColor },
-  });
-  const bandBColorData = await prisma.resistorColorCode.findFirst({
-    where: { color: bandBColor },
-  });
-  const bandCColorData = await prisma.resistorColorCode.findFirst({
-    where: { color: bandCColor },
-  });
-  const bandDColorData = await prisma.resistorColorCode.findFirst({
-    where: { color: bandDColor },
-  });
-
-  // Calculations
-
   try {
+    const bandAColorData = await prisma.resistorColorCode.findFirst({
+      where: { color: bandAColor },
+    });
+    const bandBColorData = await prisma.resistorColorCode.findFirst({
+      where: { color: bandBColor },
+    });
+    const bandCColorData = await prisma.resistorColorCode.findFirst({
+      where: { color: bandCColor },
+    });
+    const bandDColorData = await prisma.resistorColorCode.findFirst({
+      where: { color: bandDColor },
+    });
+
+    await prisma.$disconnect();
+
     const resistorDigits = joinFirstTwoBandDigits(
       bandAColorData!.digit!,
       bandBColorData!.digit!
     );
+
     const ohmValue = resistorDigits * bandCColorData!.multiplier.toNumber();
 
     if (isNaN(ohmValue)) {
       return null;
-    } else {
-      return { ohmValue, tolerance: bandDColorData?.tolerance };
     }
+
+    return { ohmValue, tolerance: bandDColorData?.tolerance };
   } catch (error) {
     return null;
   }
