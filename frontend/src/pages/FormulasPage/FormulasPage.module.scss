@@ -1,0 +1,10 @@
+.fm-page {
+  display: flex;
+  justify-content: center;
+
+  .content {
+    max-width: 720px;
+    width: 100%;
+    padding: 50px 0;
+  }
+}

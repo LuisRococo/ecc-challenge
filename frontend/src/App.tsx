@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import IndexPage from './pages/IndexPage/IndexPage';
+import FormulasPage from './pages/FormulasPage/FormulasPage';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<IndexPage />} />
-            <Route path="/formulas" element={<div>Placeholder</div>} />
+            <Route path="/formulas" element={<FormulasPage />} />
           </Routes>
         </div>
 
